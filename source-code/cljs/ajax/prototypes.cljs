@@ -12,8 +12,6 @@
 ;; ----------------------------------------------------------------------------
 
 (defn error-handler-f
-  ; WARNING! NON-PUBLIC! DO NOT USE!
-  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ;  {:error-handler-f (function)(opt)}
@@ -25,8 +23,6 @@
                           (error-handler-f request-id server-response))))
 
 (defn response-handler-f
-  ; WARNING! NON-PUBLIC! DO NOT USE!
-  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ;  {:response-handler-f (function)(opt)}
@@ -38,8 +34,6 @@
                              (response-handler-f request-id server-response))))
 
 (defn progress-handler-f
-  ; WARNING! NON-PUBLIC! DO NOT USE!
-  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ;  {:progress-handler-f (function)(opt)}
@@ -56,8 +50,6 @@
 ;; ----------------------------------------------------------------------------
 
 (defn request-handlers
-  ; WARNING! NON-PUBLIC! DO NOT USE!
-  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ;
@@ -71,8 +63,6 @@
    :progress-handler (progress-handler-f request-id request-props)})
 
 (defn GET-request-props-prototype
-  ; WARNING! NON-PUBLIC! DO NOT USE!
-  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ;  {:uri (string)}
@@ -87,8 +77,6 @@
          (select-keys request-props [:uri])))
 
 (defn POST-request-props-prototype
-  ; WARNING! NON-PUBLIC! DO NOT USE!
-  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ;  {:body (*)

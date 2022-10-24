@@ -29,9 +29,9 @@
   ;
   ; @usage
   ;  (defn my-response-handler-f [request-id server-response])
-  ;  (ajax/send-request! :my-request {:method :post
-  ;                                   :response-handler-f my-response-handler-f
-  ;                                   :uri "/my-uri"})
+  ;  (send-request! :my-request {:method :post
+  ;                              :response-handler-f my-response-handler-f
+  ;                              :uri "/my-uri"})
   [request-id {:keys [method uri] :as request-props}]
   (let [reference (case method :get  (core/GET  uri (prototypes/GET-request-props-prototype  request-id request-props))
                                :post (core/POST uri (prototypes/POST-request-props-prototype request-id request-props)))]
@@ -41,7 +41,7 @@
   ; @param (keyword) request-id
   ;
   ; @usage
-  ;  (ajax/abort-request! :my-request)
+  ;  (abort-request! :my-request)
   [request-id]
   (let [reference (get @state/REQUESTS request-id)]
        (core/abort reference)))

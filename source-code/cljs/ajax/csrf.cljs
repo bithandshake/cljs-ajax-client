@@ -14,8 +14,6 @@
 ;; ----------------------------------------------------------------------------
 
 (defn default-headers
-  ; WARNING! NON-PUBLIC! DO NOT USE!
-  ;
   ; @param (map) request
   ;
   ; @return (map)
@@ -27,7 +25,6 @@
       (return request)))
 
 (defn load-interceptors!
-  ; WARNING! NON-PUBLIC! DO NOT USE!
   []
   (let [interceptor (core/to-interceptor {:name "default headers" :request default-headers})]
        (swap! core/default-interceptors conj interceptor)))

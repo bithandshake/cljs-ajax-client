@@ -14,7 +14,7 @@
   ; @param (object) progress-event
   ;
   ; @usage
-  ;  (ajax/progress-event->request-progress %)
+  ;  (progress-event->request-progress %)
   ;
   ; @return (percent)
   [progress-event]
@@ -32,7 +32,7 @@
   ;  {:uri (string)}
   ;
   ; @usage
-  ;  (ajax/request->local-request {:uri "..."})
+  ;  (request->local-request {:uri "..."})
   ;
   ; @return (boolean)
   [{:keys [uri]}]
