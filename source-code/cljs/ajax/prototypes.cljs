@@ -1,12 +1,7 @@
 
-;; -- Namespace ---------------------------------------------------------------
-;; ----------------------------------------------------------------------------
-
 (ns ajax.prototypes
     (:require [ajax.helpers :as helpers]
               [ajax.state   :as state]))
-
-
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -20,7 +15,9 @@
   [request-id {:keys [error-handler-f]}]
   (if error-handler-f (fn [server-response]
                           (swap! state/REQUESTS dissoc request-id)
-                          (error-handler-f request-id server-response))))
+                          (error-handler-f request-id server-response))
+                      (fn [_]
+                          (swap! state/REQUESTS dissoc request-id))))
 
 (defn response-handler-f
   ; @param (keyword) request-id
@@ -31,7 +28,9 @@
   [request-id {:keys [response-handler-f]}]
   (if response-handler-f (fn [server-response]
                              (swap! state/REQUESTS dissoc request-id)
-                             (response-handler-f request-id server-response))))
+                             (response-handler-f request-id server-response))
+                         (fn [_]
+                             (swap! state/REQUESTS dissoc request-id))))
 
 (defn progress-handler-f
   ; @param (keyword) request-id
@@ -43,8 +42,6 @@
   (if progress-handler-f (fn [progress-event]
                              (let [request-progress (helpers/progress-event->request-progress progress-event)]
                                   (progress-handler-f request-id request-progress)))))
-
-
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
