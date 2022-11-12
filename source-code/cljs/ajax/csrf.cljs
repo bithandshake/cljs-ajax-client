@@ -1,9 +1,9 @@
 
 (ns ajax.csrf
-    (:require [ajax.config      :as config]
-              [ajax.core        :as core]
-              [ajax.helpers     :as helpers]
-              [mid-fruits.candy :refer [return]]))
+    (:require [ajax.config  :as config]
+              [ajax.core    :as core]
+              [ajax.helpers :as helpers]
+              [candy.api    :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
