@@ -9,7 +9,7 @@
 (defn error-handler-f
   ; @param (keyword) request-id
   ; @param (map) request-props
-  ;  {:error-handler-f (function)(opt)}
+  ; {:error-handler-f (function)(opt)}
   ;
   ; @return (function)
   [request-id {:keys [error-handler-f]}]
@@ -22,7 +22,7 @@
 (defn response-handler-f
   ; @param (keyword) request-id
   ; @param (map) request-props
-  ;  {:response-handler-f (function)(opt)}
+  ; {:response-handler-f (function)(opt)}
   ;
   ; @return (function)
   [request-id {:keys [response-handler-f]}]
@@ -35,7 +35,7 @@
 (defn progress-handler-f
   ; @param (keyword) request-id
   ; @param (map) request-props
-  ;  {:progress-handler-f (function)(opt)}
+  ; {:progress-handler-f (function)(opt)}
   ;
   ; @return (function)
   [request-id {:keys [progress-handler-f]}]
@@ -51,9 +51,9 @@
   ; @param (map) request-props
   ;
   ; @return (map)
-  ;  {:error-handler (function)
-  ;   :handler (function)
-  ;   :progress-handler (function)}
+  ; {:error-handler (function)
+  ;  :handler (function)
+  ;  :progress-handler (function)}
   [request-id request-props]
   {:error-handler    (error-handler-f    request-id request-props)
    :handler          (response-handler-f request-id request-props)
@@ -62,13 +62,13 @@
 (defn GET-request-props-prototype
   ; @param (keyword) request-id
   ; @param (map) request-props
-  ;  {:uri (string)}
+  ; {:uri (string)}
   ;
   ; @return (map)
-  ;  {:error-handler (function)
-  ;   :handler (function)
-  ;   :progress-handler (function)
-  ;   :uri (string)}
+  ; {:error-handler (function)
+  ;  :handler (function)
+  ;  :progress-handler (function)
+  ;  :uri (string)}
   [request-id request-props]
   (merge (request-handlers request-id request-props)
          (select-keys request-props [:uri])))
@@ -76,17 +76,17 @@
 (defn POST-request-props-prototype
   ; @param (keyword) request-id
   ; @param (map) request-props
-  ;  {:body (*)
-  ;   :params (map)
-  ;   :uri (string)}
+  ; {:body (*)
+  ;  :params (map)
+  ;  :uri (string)}
   ;
   ; @return (map)
-  ;  {:body (*)
-  ;   :error-handler (function)
-  ;   :handler (function)
-  ;   :params (map)
-  ;   :progress-handler (function)
-  ;   :uri (string)}
+  ; {:body (*)
+  ;  :error-handler (function)
+  ;  :handler (function)
+  ;  :params (map)
+  ;  :progress-handler (function)
+  ;  :uri (string)}
   [request-id request-props]
   (merge (request-handlers request-id request-props)
          (select-keys request-props [:body :params :uri])))

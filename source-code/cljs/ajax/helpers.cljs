@@ -9,7 +9,8 @@
   ; @param (object) progress-event
   ;
   ; @usage
-  ;  (progress-event->request-progress %)
+  ; (fn [progress-event]
+  ;     (progress-event->request-progress progress-event))
   ;
   ; @return (percent)
   [progress-event]
@@ -22,10 +23,20 @@
 
 (defn request->local-request?
   ; @param (map) request
-  ;  {:uri (string)}
+  ; {:uri (string)}
   ;
   ; @usage
-  ;  (request->local-request {:uri "..."})
+  ; (request->local-request {:uri "..."})
+  ;
+  ; @example
+  ; (request->local-request {:uri "/my-route"})
+  ; =>
+  ; true
+  ;
+  ; @example
+  ; (request->local-request {:uri "https://my-site.com"})
+  ; =>
+  ; false
   ;
   ; @return (boolean)
   [{:keys [uri]}]

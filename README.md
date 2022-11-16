@@ -1,6 +1,13 @@
 
 # ajax-api
-  "I show you how deep the rabbit hole goes" – Morpheus
+> "I show you how deep the rabbit hole goes" – Morpheus
 
-# Documentation book is releasing soon ...
-  2023.01.01.
+### Overview
+...
+
+### Current version
+The <strong>ajax-api</strong> is releasing soon on Clojars!
+
+### Documentation
+
+The <strong>ajax-api</strong> documentation is [available here](documentation/COVER.md).

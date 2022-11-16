@@ -12,8 +12,8 @@
   ; @param (map) request
   ;
   ; @return (map)
-  ;  {:headers (map)
-  ;    {"x-csrf-token" (string)}}
+  ; {:headers (map)
+  ;   {"x-csrf-token" (string)}}
   [request]
   (if (helpers/request->local-request? request)
       (update request :headers merge {"x-csrf-token" config/CSRF-TOKEN})
