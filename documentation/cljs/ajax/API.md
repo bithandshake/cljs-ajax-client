@@ -2,7 +2,7 @@
 # <strong>ajax.api</strong> namespace
 <p>Documentation of the <strong>ajax/api.cljs</strong> file</p>
 
-[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > ajax.api
+<strong>[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > ajax.api</strong>
 
 
 

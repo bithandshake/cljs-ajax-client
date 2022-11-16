@@ -2,7 +2,7 @@
 # <strong>ajax-api</strong>
 <p>Documentation of the <strong>ajax-api</strong> ClojureScript library</p>
 
-[README](../README.md) > DOCUMENTATION
+<strong>[README](../README.md) > DOCUMENTATION</strong>
 
 ### Public namespaces
 * [ajax.api](cljs/ajax/API.md) [cljs]

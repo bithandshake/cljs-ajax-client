@@ -9,5 +9,4 @@
 The <strong>ajax-api</strong> is releasing soon on Clojars!
 
 ### Documentation
-
 The <strong>ajax-api</strong> documentation is [available here](documentation/COVER.md).
