@@ -90,6 +90,7 @@
 
 ```
 @param (map) request
+{:uri (string)}
 ```
 
 ```
@@ -146,6 +147,16 @@ false
 ```
 @param (keyword) request-id
 @param (map) request-props
+{:error-handler-f (function)(opt)
+ :method (keyword)
+  :get, :post
+ :params (map)(opt)
+  W/ {:method :post}
+ :progress-handler-f (function)(opt)
+  W/ {:method :post}
+ :response-handler-f (function)(opt)
+ :timeout (ms)(opt)
+ :uri (string)}
 ```
 
 ```
