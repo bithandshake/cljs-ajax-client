@@ -21,20 +21,20 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn request->local-request?
+(defn request->internal-request?
   ; @param (map) request
   ; {:uri (string)}
   ;
   ; @usage
-  ; (request->local-request {:uri "..."})
+  ; (request->internal-request? {:uri "..."})
   ;
   ; @example
-  ; (request->local-request {:uri "/my-route"})
+  ; (request->internal-request? {:uri "/my-route"})
   ; =>
   ; true
   ;
   ; @example
-  ; (request->local-request {:uri "https://my-site.com"})
+  ; (request->internal-request? {:uri "https://my-site.com"})
   ; =>
   ; false
   ;

@@ -9,7 +9,7 @@
 
 ; ajax.helpers
 (def progress-event->request-progress helpers/progress-event->request-progress)
-(def request->local-request?          helpers/request->local-request?)
+(def request->internal-request?       helpers/request->internal-request?)
 
 ; ajax.side-effects
 (def send-request!  side-effects/send-request!)

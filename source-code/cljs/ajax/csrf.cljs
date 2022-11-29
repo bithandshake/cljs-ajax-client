@@ -15,7 +15,7 @@
   ; {:headers (map)
   ;   {"x-csrf-token" (string)}}
   [request]
-  (if (helpers/request->local-request? request)
+  (if (helpers/request->internal-request? request)
       (update request :headers merge {"x-csrf-token" config/CSRF-TOKEN})
       (return request)))
 

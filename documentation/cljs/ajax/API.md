@@ -86,7 +86,7 @@
 
 ---
 
-### request->local-request?
+### request->internal-request?
 
 ```
 @param (map) request
@@ -95,19 +95,19 @@
 
 ```
 @usage
-(request->local-request {:uri "..."})
+(request->internal-request? {:uri "..."})
 ```
 
 ```
 @example
-(request->local-request {:uri "/my-route"})
+(request->internal-request? {:uri "/my-route"})
 =>
 true
 ```
 
 ```
 @example
-(request->local-request {:uri "https://my-site.com"})
+(request->internal-request? {:uri "https://my-site.com"})
 =>
 false
 ```
@@ -120,7 +120,7 @@ false
 <summary>Source code</summary>
 
 ```
-(defn request->local-request?
+(defn request->internal-request?
   [{:keys [uri]}]
   (let [uri-external? (re-find #"^\w+?://" uri)]
        (not uri-external?)))
@@ -132,10 +132,10 @@ false
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [ajax.api :as ajax :refer [request->local-request?]]))
+(ns my-namespace (:require [ajax.api :as ajax :refer [request->internal-request?]]))
 
-(ajax/request->local-request? ...)
-(request->local-request?      ...)
+(ajax/request->internal-request? ...)
+(request->internal-request?      ...)
 ```
 
 </details>
