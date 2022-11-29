@@ -16,7 +16,7 @@
 
 ### Current version
 
-Check out the latest commit on the [release branch](https://github.com/bithandshake/logger-api/tree/release).
+Check out the latest commit on the [release branch](https://github.com/bithandshake/ajax-api/tree/release).
 
 ### Documentation
 
