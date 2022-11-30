@@ -5,7 +5,8 @@
 
 ### Overview
 
-...
+The <strong>ajax-api</strong> is an ansynchcronous ClojureScript request handler
+based on the [JulianBirch / cljs-ajax] library with some extra features like CSRF handling.
 
 ### deps.edn
 
