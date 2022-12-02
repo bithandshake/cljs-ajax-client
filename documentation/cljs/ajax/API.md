@@ -1,10 +1,7 @@
 
 # <strong>ajax.api</strong> namespace
-<p>Documentation of the <strong>ajax/api.cljs</strong> file</p>
 
-<strong>[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > ajax.api</strong>
-
-
+<strong>[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > </strong>source-code/cljs/ajax/api.cljs
 
 ### abort-request!
 
@@ -33,10 +30,10 @@
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [ajax.api :as ajax :refer [abort-request!]]))
+(ns my-namespace (:require [ajax.api :refer [abort-request!]]))
 
-(ajax/abort-request! ...)
-(abort-request!      ...)
+(ajax.api/abort-request! ...)
+(abort-request!          ...)
 ```
 
 </details>
@@ -76,10 +73,10 @@
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [ajax.api :as ajax :refer [progress-event->request-progress]]))
+(ns my-namespace (:require [ajax.api :refer [progress-event->request-progress]]))
 
-(ajax/progress-event->request-progress ...)
-(progress-event->request-progress      ...)
+(ajax.api/progress-event->request-progress ...)
+(progress-event->request-progress          ...)
 ```
 
 </details>
@@ -132,10 +129,10 @@ false
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [ajax.api :as ajax :refer [request->internal-request?]]))
+(ns my-namespace (:require [ajax.api :refer [request->internal-request?]]))
 
-(ajax/request->internal-request? ...)
-(request->internal-request?      ...)
+(ajax.api/request->internal-request? ...)
+(request->internal-request?          ...)
 ```
 
 </details>
@@ -184,10 +181,10 @@ false
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [ajax.api :as ajax :refer [send-request!]]))
+(ns my-namespace (:require [ajax.api :refer [send-request!]]))
 
-(ajax/send-request! ...)
-(send-request!      ...)
+(ajax.api/send-request! ...)
+(send-request!          ...)
 ```
 
 </details>

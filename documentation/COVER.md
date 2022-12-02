@@ -1,10 +1,12 @@
 
 # <strong>ajax-api</strong>
-<p>Documentation of the <strong>ajax-api</strong> ClojureScript library</p>
+
+<p>Documentation of the <strong>ajax-api</strong> Clojure / ClojureScript library</p>
 
 <strong>[README](../README.md) > DOCUMENTATION</strong>
 
 ### Public namespaces
+
 * [ajax.api](cljs/ajax/API.md) [cljs]
 
 ---
