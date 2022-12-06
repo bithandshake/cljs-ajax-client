@@ -4,6 +4,6 @@
          bithandshake/cljc-fruits  {:git/url "https://github.com/bithandshake/cljc-fruits"
                                     :sha     "7c8bbce1c4546534cfe2215c1ec9dc08aba316ef"}
          bithandshake/dom-api      {:git/url "https://github.com/bithandshake/dom-api"
-                                    :sha     "361f7fd8a08c0a5f29f9e074657d6ab28bdda78e"}
+                                    :sha     "db5dfc08adb70fa8ed1273744f650cd9871bb366"}
          bithandshake/re-frame-api {:git/url "https://github.com/bithandshake/re-frame-api"
                                     :sha     "39540f2a5662cc3f15fb9216ad6a57327592e87c"}}}
