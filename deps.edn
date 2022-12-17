@@ -6,4 +6,4 @@
          bithandshake/dom-api      {:git/url "https://github.com/bithandshake/dom-api"
                                     :sha     "6036c96f99fc5de89cf92c5e3766b9435bc4db56"}
          bithandshake/re-frame-api {:git/url "https://github.com/bithandshake/re-frame-api"
-                                    :sha     "65e3612b0c6ecd62d8654e99fb259eedc37b2ca1"}}}
+                                    :sha     "3aae6f2888fcc2d7769436a0d77b05fc0c6e4a05"}}}
