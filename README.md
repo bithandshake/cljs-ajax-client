@@ -6,7 +6,8 @@
 ### Overview
 
 The <strong>ajax-api</strong> is an ansynchcronous ClojureScript request handler
-based on the [JulianBirch / cljs-ajax] library with some extra features like CSRF handling.
+based on the [JulianBirch / cljs-ajax] library with some extra features such as
+CSRF handling, etc.
 
 ### deps.edn
 
@@ -26,3 +27,140 @@ The <strong>ajax-api</strong> functional documentation is [available here](docum
 ### Changelog
 
 You can track the changes of the <strong>ajax-api</strong> library [here](CHANGES.md).
+
+# Usage
+
+### How to send a request?
+
+The [`ajax.api/send-request!`](documentation/cljs/ajax/API.md#send-request) function
+sends an AJAX request to the given uri by the given method.
+
+```
+(defn send-my-request!
+  []
+  (send-request! {:method :post
+                  :uri    "/my-uri"}))
+```
+
+You can set a progress handler function which takes the request-id and the current
+progress value as its parameters.
+
+```
+(defn my-progress-handler-f
+  [request-id request-progress]
+  (println "This request is" request-progress "% done."))
+
+(defn send-my-request!
+  []
+  (send-request! {:method             :post
+                  :progress-handler-f my-progress-handler-f
+                  :uri                "/my-uri"}))
+```
+
+Both the error handler and the response handler function takes the request-id
+and the server response as its parameters.
+
+```
+(defn my-error-handler-f
+  [request-id server-response]
+  (println "Something went wrong:" server-response))
+
+(defn my-response-handler-f
+  [request-id server-response]
+  (println "I got the answer:" server-response))
+
+(defn send-my-request!
+  []
+  (send-request! {:method             :post
+                  :error-handler-f    my-error-handler-f
+                  :response-handler-f my-response-handler-f
+                  :uri                "/my-uri"}))
+```
+
+### How to abort an ongoing request?
+
+The [`ajax.api/abort-request!`](documentation/cljs/ajax/API.md#abort-request)
+function immediately stops the ongoing request with the given id.
+
+First you should do is that to send the request with a specified id what can
+be useful when you want to abort your request.
+
+```
+(defn send-my-request!
+  []
+  (send-request! :my-request
+                 {:method :post
+                  :uri    "/my-uri"}))
+
+(defn abort-my-request!
+  []
+  (abort-request! :my-request))
+```
+
+An alternative way is to keep the return value of the
+[`ajax.api/send-request!`](documentation/cljs/ajax/API.md#send-request) function
+which is the id of the sent request.
+
+```
+(def ID (atom nil))
+
+(defn send-my-request!
+  []
+  (let [request-id (send-request! {:method :post :uri "/my-uri"})]
+       (reset! ID request-id)))
+
+(defn abort-my-request!
+  []
+  (abort-request! @ID))
+```
+
+### Re-Frame events
+
+The [`ajax.api/send-request!`](documentation/cljs/ajax/API.md#send-request) and
+[`ajax.api/abort-request!`](documentation/cljs/ajax/API.md#send-request) functions
+are also registered as Re-Frame side-effect events.
+
+> In the following examples you see Re-Frame event dispatching in a slightly
+  different way. That's because the <strong>ajax-api</strong> library uses not
+  the original Re-Frame library.
+  Learn more: https://github.com/bithandshake/re-frame-api
+
+```
+(re-frame.api/reg-event-fx :send-my-request!
+  (fn [_ _]
+      {:fx [:ajax/send-request! {...}]}))
+```
+
+```
+(re-frame.api/dispatch {:fx [:ajax/send-request! {...}]})
+```
+
+```
+(re-frame.api/reg-event-fx :send-my-request!
+  (fn [_ _]
+      {:fx [:ajax/send-request! :my-request {...}]}))
+```
+
+```
+(re-frame.api/dispatch {:fx [:ajax/send-request! :my-request {...}]})
+```
+
+```
+(re-frame.api/reg-event-fx :send-my-request!
+  (fn [_ _]
+      {:fx [:ajax/abort-request! :my-request]}))
+```
+
+```
+(re-frame.api/dispatch {:fx [:ajax/abort-request! :my-request]})
+```
+
+
+### CSRF token
+
+To use a CSRF token in request headers, you have to place an element in the DOM
+tree with the `data-csrf-token` attribute and to set the actual token as its value.
+
+```
+[:div {:data-csrf-token "..."}]
+```
