@@ -30,6 +30,10 @@ You can track the changes of the <strong>ajax-api</strong> library [here](CHANGE
 
 # Usage
 
+> Some functions and some parameters of the following functions won't be discussed. 
+  To learn more about the available functionality, check out the
+  [functional documentation](documentation/COVER.md)!
+
 ### How to send a request?
 
 The [`ajax.api/send-request!`](documentation/cljs/ajax/API.md#send-request) function
@@ -122,8 +126,9 @@ are also registered as Re-Frame side-effect events.
 
 > In the following examples you see Re-Frame event dispatching in a slightly
   different way. That's because the <strong>ajax-api</strong> library uses not
-  the original Re-Frame library.
-  Learn more: https://github.com/bithandshake/re-frame-api
+  the original Re-Frame library.  
+
+> Learn more: https://github.com/bithandshake/re-frame-api
 
 ```
 (re-frame.api/reg-event-fx :send-my-request!

@@ -152,7 +152,7 @@ false
 ### send-request!
 
 ```
-@param (keyword) request-id
+@param (keyword)(opt) request-id
 @param (map) request-props
 {:error-handler-f (function)(opt)
  :method (keyword)
@@ -168,10 +168,18 @@ false
 
 ```
 @usage
+(defn my-progress-handler-f [request-id request-progress])
+(defn my-error-handler-f    [request-id server-response])
 (defn my-response-handler-f [request-id server-response])
 (send-request! :my-request {:method             :post
+                            :progress-handler-f my-progress-handler-f
+                            :error-handler-f    my-error-handler-f
                             :response-handler-f my-response-handler-f
                             :uri                "/my-uri"})
+```
+
+```
+@return (keyword)
 ```
 
 <details>
@@ -179,10 +187,14 @@ false
 
 ```
 (defn send-request!
-  [request-id {:keys [method uri] :as request-props}]
-  (let [reference (case method :get  (core/GET  uri (prototypes/GET-request-props-prototype  request-id request-props))
-                               :post (core/POST uri (prototypes/POST-request-props-prototype request-id request-props)))]
-       (swap! state/REQUESTS assoc request-id reference)))
+  ([request-props]
+   (send-request! (random/generate-keyword) request-props))
+
+  ([request-id {:keys [method uri] :as request-props}]
+   (let [reference (case method :get  (core/GET  uri (prototypes/GET-request-props-prototype  request-id request-props))
+                                :post (core/POST uri (prototypes/POST-request-props-prototype request-id request-props)))]
+        (swap! state/REQUESTS assoc request-id reference)
+        (return request-id))))
 ```
 
 </details>

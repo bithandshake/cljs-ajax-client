@@ -2,8 +2,8 @@
 {:paths ["source-code/cljs"]
  :deps  {cljs-ajax/cljs-ajax       {:mvn/version "0.8.0"}
          bithandshake/cljc-fruits  {:git/url "https://github.com/bithandshake/cljc-fruits"
-                                    :sha     "14f082745d634265cc981d97e74b5c076d0daa69"}
+                                    :sha     "1027cc4225016616831885529e40a3bbbdf8c38b"}
          bithandshake/dom-api      {:git/url "https://github.com/bithandshake/dom-api"
-                                    :sha     "3cb20e8620404e307a1b1541c0fe2cbe6c05aa01"}
+                                    :sha     "e2531a86ce91fe3fcabe58a3dd5923c6bc842d56"}
          bithandshake/re-frame-api {:git/url "https://github.com/bithandshake/re-frame-api"
-                                    :sha     "459d997ff036d785edfb7fb5cd2e245ebafc33b0"}}}
+                                    :sha     "9bd74b85e95b1891f892b16469049a8eeafab443"}}}
