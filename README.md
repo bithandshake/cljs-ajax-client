@@ -30,7 +30,7 @@ You can track the changes of the <strong>ajax-api</strong> library [here](CHANGE
 
 # Usage
 
-> Some functions and some parameters of the following functions won't be discussed. 
+> Some functions and some parameters of the following functions won't be discussed.
   To learn more about the available functionality, check out the
   [functional documentation](documentation/COVER.md)!
 
@@ -40,10 +40,8 @@ The [`ajax.api/send-request!`](documentation/cljs/ajax/API.md#send-request) func
 sends an AJAX request to the given uri by the given method.
 
 ```
-(defn send-my-request!
-  []
-  (send-request! {:method :post
-                  :uri    "/my-uri"}))
+(send-request! {:method :post
+                :uri    "/my-uri"})
 ```
 
 You can set a progress handler function which takes the request-id and the current
@@ -54,11 +52,9 @@ progress value as its parameters.
   [request-id request-progress]
   (println "This request is" request-progress "% done."))
 
-(defn send-my-request!
-  []
-  (send-request! {:method             :post
-                  :progress-handler-f my-progress-handler-f
-                  :uri                "/my-uri"}))
+(send-request! {:method             :post
+                :progress-handler-f my-progress-handler-f
+                :uri                "/my-uri"})
 ```
 
 Both the error handler and the response handler function takes the request-id
@@ -73,12 +69,10 @@ and the server response as its parameters.
   [request-id server-response]
   (println "I got the answer:" server-response))
 
-(defn send-my-request!
-  []
-  (send-request! {:method             :post
-                  :error-handler-f    my-error-handler-f
-                  :response-handler-f my-response-handler-f
-                  :uri                "/my-uri"}))
+(send-request! {:method             :post
+                :error-handler-f    my-error-handler-f
+                :response-handler-f my-response-handler-f
+                :uri                "/my-uri"})
 ```
 
 ### How to abort an ongoing request?
@@ -90,15 +84,11 @@ First you should do is that to send the request with a specified id what can
 be useful when you want to abort your request.
 
 ```
-(defn send-my-request!
-  []
-  (send-request! :my-request
-                 {:method :post
-                  :uri    "/my-uri"}))
+(send-request! :my-request
+               {:method :post
+                :uri    "/my-uri"})
 
-(defn abort-my-request!
-  []
-  (abort-request! :my-request))
+(abort-request! :my-request)
 ```
 
 An alternative way is to keep the return value of the
@@ -106,16 +96,9 @@ An alternative way is to keep the return value of the
 which is the id of the sent request.
 
 ```
-(def ID (atom nil))
+(def REQUEST-ID (send-request! {:method :post :uri "/my-uri"}))
 
-(defn send-my-request!
-  []
-  (let [request-id (send-request! {:method :post :uri "/my-uri"})]
-       (reset! ID request-id)))
-
-(defn abort-my-request!
-  []
-  (abort-request! @ID))
+(abort-request! REQUEST-ID)
 ```
 
 ### Re-Frame events
