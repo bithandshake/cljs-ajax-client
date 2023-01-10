@@ -1,8 +1,7 @@
 
-
 # ajax-api documentation
 
-Documentation of the [ajax-api](https://github.com/bithandshake-hq/ajax-api) ClojureScript library
+Documentation of the [ajax-api](https://github.com/bithandshake/ajax-api) ClojureScript library
 
 ##### [README](../README.md) > DOCUMENTATION
 
