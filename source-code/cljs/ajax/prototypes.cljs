@@ -7,6 +7,8 @@
 ;; ----------------------------------------------------------------------------
 
 (defn error-handler-f
+  ; @ignore
+  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ; {:error-handler-f (function)(opt)}
@@ -20,6 +22,8 @@
                           (swap! state/REQUESTS dissoc request-id))))
 
 (defn response-handler-f
+  ; @ignore
+  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ; {:response-handler-f (function)(opt)}
@@ -33,6 +37,8 @@
                              (swap! state/REQUESTS dissoc request-id))))
 
 (defn progress-handler-f
+  ; @ignore
+  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ; {:progress-handler-f (function)(opt)}
@@ -47,6 +53,8 @@
 ;; ----------------------------------------------------------------------------
 
 (defn request-handlers
+  ; @ignore
+  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ;
@@ -60,6 +68,8 @@
    :progress-handler (progress-handler-f request-id request-props)})
 
 (defn GET-request-props-prototype
+  ; @ignore
+  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ; {:uri (string)}
@@ -74,6 +84,8 @@
          (select-keys request-props [:uri])))
 
 (defn POST-request-props-prototype
+  ; @ignore
+  ;
   ; @param (keyword) request-id
   ; @param (map) request-props
   ; {:body (*)

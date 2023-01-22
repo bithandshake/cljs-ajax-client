@@ -9,6 +9,8 @@
 ;; ----------------------------------------------------------------------------
 
 (defn default-headers
+  ; @ignore
+  ;
   ; @param (map) request
   ;
   ; @return (map)
@@ -20,6 +22,7 @@
       (return request)))
 
 (defn load-interceptors!
+  ; @ignore
   []
   (let [interceptor (core/to-interceptor {:name "default headers" :request default-headers})]
        (swap! core/default-interceptors conj interceptor)))

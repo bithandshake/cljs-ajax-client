@@ -57,9 +57,9 @@
 ;; ----------------------------------------------------------------------------
 
 ; @usage
-;  [:ajax/send-request! :my-request {...}]
+; [:ajax/send-request! :my-request {...}]
 (r/reg-fx :ajax/send-request! send-request!)
 
 ; @usage
-;  [:ajax/abort-request! :my-request]
+; [:ajax/abort-request! :my-request]
 (r/reg-fx :ajax/abort-request! abort-request!)
