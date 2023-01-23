@@ -3,7 +3,7 @@
     (:require [ajax.core       :as core]
               [ajax.prototypes :as prototypes]
               [ajax.state      :as state]
-              [candy.api       :refer [return]]
+              [noop.api        :refer [return]]
               [random.api      :as random]
               [re-frame.api    :as r]))
 

@@ -3,7 +3,7 @@
     (:require [ajax.config  :as config]
               [ajax.core    :as core]
               [ajax.helpers :as helpers]
-              [candy.api    :refer [return]]))
+              [noop.api     :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
