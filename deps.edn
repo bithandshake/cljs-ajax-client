@@ -6,4 +6,4 @@
          bithandshake/cljs-dom     {:git/url "https://github.com/bithandshake/cljs-dom"
                                     :sha     "a166ef4891d020b1af91b8b30d2d9299cd8d1d53"}
          bithandshake/re-frame-api {:git/url "https://github.com/bithandshake/re-frame-api"
-                                    :sha     "5facc2d4cd8a9acaa631484c18a0fba0da2714dd"}}}
+                                    :sha     "04dc6a52915e4d999617e1914402193e0671d05b"}}}
