@@ -1,7 +1,7 @@
 
 (ns ajax.prototypes
-    (:require [ajax.helpers :as helpers]
-              [ajax.state   :as state]))
+    (:require [ajax.state :as state]
+              [ajax.utils :as utils]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -46,7 +46,7 @@
   ; @return (function)
   [request-id {:keys [progress-handler-f]}]
   (if progress-handler-f (fn [progress-event]
-                             (let [request-progress (helpers/progress-event->request-progress progress-event)]
+                             (let [request-progress (utils/progress-event->request-progress progress-event)]
                                   (progress-handler-f request-id request-progress)))))
 
 ;; ----------------------------------------------------------------------------

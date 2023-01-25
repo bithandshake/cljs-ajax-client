@@ -1,9 +1,9 @@
 
 (ns ajax.csrf
-    (:require [ajax.config  :as config]
-              [ajax.core    :as core]
-              [ajax.helpers :as helpers]
-              [noop.api     :refer [return]]))
+    (:require [ajax.config :as config]
+              [ajax.core   :as core]
+              [ajax.utils  :as utils]
+              [noop.api    :refer [return]]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -17,7 +17,7 @@
   ; {:headers (map)
   ;   {"x-csrf-token" (string)}}
   [request]
-  (if (helpers/request->internal-request? request)
+  (if (utils/request->internal-request? request)
       (update request :headers merge {"x-csrf-token" config/CSRF-TOKEN})
       (return request)))
 
