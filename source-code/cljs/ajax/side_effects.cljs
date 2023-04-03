@@ -4,8 +4,7 @@
               [ajax.prototypes :as prototypes]
               [ajax.state      :as state]
               [noop.api        :refer [return]]
-              [random.api      :as random]
-              [re-frame.api    :as r]))
+              [random.api      :as random]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -52,14 +51,3 @@
   [request-id]
   (let [reference (get @state/REQUESTS request-id)]
        (core/abort reference)))
-
-;; ----------------------------------------------------------------------------
-;; ----------------------------------------------------------------------------
-
-; @usage
-; [:ajax/send-request! :my-request {...}]
-(r/reg-fx :ajax/send-request! send-request!)
-
-; @usage
-; [:ajax/abort-request! :my-request]
-(r/reg-fx :ajax/abort-request! abort-request!)
