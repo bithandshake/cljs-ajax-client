@@ -30,9 +30,17 @@ You can track the changes of the <strong>ajax-api</strong> library [here](CHANGE
 
 # Usage
 
-> Some functions and some parameters of the following functions won't be discussed.
+> Some parameters of the following functions and some other functions won't be discussed.
   To learn more about the available functionality, check out the
   [functional documentation](documentation/COVER.md)!
+
+### Index
+
+- [How to send a request?](#how-to-send-a-request)
+
+- [How to abort an ongoing request?](#how-to-abort-an-ongoing-request)
+
+- [CSRF token](#csrf-token)
 
 ### How to send a request?
 
@@ -101,53 +109,11 @@ which is the id of the sent request.
 (abort-request! REQUEST-ID)
 ```
 
-### Re-Frame events
-
-The [`ajax.api/send-request!`](documentation/cljs/ajax/API.md#send-request) and
-[`ajax.api/abort-request!`](documentation/cljs/ajax/API.md#send-request) functions
-are also registered as Re-Frame side-effect events.
-
-> In the following examples you see Re-Frame event dispatching in a slightly
-  different way. That's because the <strong>ajax-api</strong> library uses not
-  the original Re-Frame library.  
-
-> Learn more: https://github.com/bithandshake/re-frame-api
-
-```
-(re-frame.api/reg-event-fx :send-my-request!
-  (fn [_ _]
-      {:fx [:ajax/send-request! {...}]}))
-```
-
-```
-(re-frame.api/dispatch {:fx [:ajax/send-request! {...}]})
-```
-
-```
-(re-frame.api/reg-event-fx :send-my-request!
-  (fn [_ _]
-      {:fx [:ajax/send-request! :my-request {...}]}))
-```
-
-```
-(re-frame.api/dispatch {:fx [:ajax/send-request! :my-request {...}]})
-```
-
-```
-(re-frame.api/reg-event-fx :send-my-request!
-  (fn [_ _]
-      {:fx [:ajax/abort-request! :my-request]}))
-```
-
-```
-(re-frame.api/dispatch {:fx [:ajax/abort-request! :my-request]})
-```
-
-
 ### CSRF token
 
-To use a CSRF token in request headers, you have to place an element in the DOM
-tree with the `data-csrf-token` attribute and to set the actual token as its value.
+To use a CSRF token in request headers you have to place an element in the DOM
+tree with the `data-csrf-token` attribute and you have to set the actual token
+as its value.
 
 ```
 [:div {:data-csrf-token "..."}]
