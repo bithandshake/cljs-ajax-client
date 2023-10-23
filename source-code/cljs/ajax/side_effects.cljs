@@ -3,7 +3,6 @@
     (:require [ajax.core       :as core]
               [ajax.prototypes :as prototypes]
               [ajax.state      :as state]
-              [noop.api        :refer [return]]
               [random.api      :as random]))
 
 ;; ----------------------------------------------------------------------------
@@ -41,7 +40,7 @@
    (let [reference (case method :get  (core/GET  uri (prototypes/GET-request-props-prototype  request-id request-props))
                                 :post (core/POST uri (prototypes/POST-request-props-prototype request-id request-props)))]
         (swap! state/REQUESTS assoc request-id reference)
-        (return request-id))))
+        (->    request-id))))
 
 (defn abort-request!
   ; @param (keyword) request-id

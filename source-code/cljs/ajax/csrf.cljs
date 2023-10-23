@@ -2,8 +2,7 @@
 (ns ajax.csrf
     (:require [ajax.config :as config]
               [ajax.core   :as core]
-              [ajax.utils  :as utils]
-              [noop.api    :refer [return]]))
+              [ajax.utils  :as utils]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -19,7 +18,7 @@
   [request]
   (if (utils/request->internal-request? request)
       (update request :headers merge {"x-csrf-token" config/CSRF-TOKEN})
-      (return request)))
+      (->     request)))
 
 (defn load-interceptors!
   ; @ignore
