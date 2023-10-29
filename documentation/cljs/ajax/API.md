@@ -194,7 +194,7 @@ false
    (let [reference (case method :get  (core/GET  uri (prototypes/GET-request-props-prototype  request-id request-props))
                                 :post (core/POST uri (prototypes/POST-request-props-prototype request-id request-props)))]
         (swap! state/REQUESTS assoc request-id reference)
-        (->    request-id))))
+        (-> request-id))))
 ```
 
 </details>
