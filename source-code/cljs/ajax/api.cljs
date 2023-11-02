@@ -1,8 +1,8 @@
 
 (ns ajax.api
     (:require [ajax.csrf]
-              [ajax.utils        :as utils]
-              [ajax.side-effects :as side-effects]))
+              [ajax.side-effects :as side-effects]
+              [ajax.utils        :as utils]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
