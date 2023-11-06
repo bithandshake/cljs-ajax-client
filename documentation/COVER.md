@@ -1,7 +1,11 @@
 
-# ajax-api documentation
+### ajax-api
 
-Documentation of the [ajax-api](https://github.com/bithandshake/ajax-api) ClojureScript library
+Functional documentation of the [ajax-api](https://github.com/bithandshake/ajax-api) ClojureScript library
+
+---
+
+
 
 ##### [README](../README.md) > DOCUMENTATION
 
@@ -11,5 +15,5 @@ Documentation of the [ajax-api](https://github.com/bithandshake/ajax-api) Clojur
 
 ---
 
-This documentation is generated with the [clj-docs-generator](https://github.com/bithandshake/clj-docs-generator) engine.
+<sub>This documentation is generated with the [clj-docs-generator](https://github.com/bithandshake/clj-docs-generator) engine.</sub>
 

@@ -1,5 +1,9 @@
 
-# ajax.api ClojureScript namespace
+### ajax.api
+
+Functional documentation of the ajax.api ClojureScript namespace
+
+---
 
 ##### [README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > ajax.api
 
@@ -12,6 +16,8 @@
 - [request->internal-request?](#request-internal-request)
 
 - [send-request!](#send-request)
+
+---
 
 ### abort-request!
 
@@ -213,5 +219,5 @@ false
 
 ---
 
-This documentation is generated with the [clj-docs-generator](https://github.com/bithandshake/clj-docs-generator) engine.
+<sub>This documentation is generated with the [clj-docs-generator](https://github.com/bithandshake/clj-docs-generator) engine.</sub>
 
