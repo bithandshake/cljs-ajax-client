@@ -7,4 +7,4 @@
 ; @ignore
 ;
 ; @atom (map)
-(def REQUESTS (atom {}))
+(def REFERENCES (atom {}))

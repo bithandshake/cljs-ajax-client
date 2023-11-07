@@ -1,8 +1,6 @@
 
 # ajax-api
 
-> "I show you how deep the rabbit hole goes" – Morpheus
-
 ### Overview
 
 The <strong>ajax-api</strong> is an ansynchcronous ClojureScript request handler
@@ -30,9 +28,8 @@ You can track the changes of the <strong>ajax-api</strong> library [here](CHANGE
 
 # Usage
 
-> Some parameters of the following functions and some other functions won't be discussed.
-  To learn more about the available functionality, check out the
-  [functional documentation](documentation/COVER.md)!
+> Some parameters of the following functions and some further functions are not discussed in this file.
+  To learn more about the available functionality, check out the [functional documentation](documentation/COVER.md)!
 
 ### Index
 
