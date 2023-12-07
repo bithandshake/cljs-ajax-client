@@ -1,9 +1,9 @@
 
 (ns ajax.side-effects
-    (:require [ajax.core       :as core]
-              [ajax.prototypes :as prototypes]
-              [ajax.state      :as state]
-              [random.api      :as random]))
+    (:require [ajax.core         :as core]
+              [ajax.prototypes   :as prototypes]
+              [ajax.state        :as state]
+              [fruits.random.api :as random]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
