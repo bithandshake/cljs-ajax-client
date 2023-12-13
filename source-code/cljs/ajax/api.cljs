@@ -7,10 +7,10 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-; @redirect (ajax.side-effects)
+; @redirect (ajax.side-effects/*)
 (def send-request!  side-effects/send-request!)
 (def abort-request! side-effects/abort-request!)
 
-; @redirect (ajax.utils)
+; @redirect (ajax.utils/*)
 (def progress-event->request-progress utils/progress-event->request-progress)
 (def request->internal-request?       utils/request->internal-request?)

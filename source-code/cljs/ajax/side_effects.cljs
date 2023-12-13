@@ -50,7 +50,7 @@
 
 (defn abort-request!
   ; @description
-  ; Aborts an ongoing request identified by its request ID.
+  ; Aborts an ongoing request identified by the given request ID.
   ;
   ; @param (keyword) request-id
   ;
