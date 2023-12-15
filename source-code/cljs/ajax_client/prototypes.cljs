@@ -1,8 +1,8 @@
 
-(ns ajax.prototypes
-    (:require [ajax.handlers :as handlers]
-              [ajax.state    :as state]
-              [ajax.utils    :as utils]))
+(ns ajax-client.prototypes
+    (:require [ajax-client.handlers :as handlers]
+              [ajax-client.state    :as state]
+              [ajax-client.utils    :as utils]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

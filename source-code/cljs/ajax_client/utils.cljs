@@ -1,5 +1,5 @@
 
-(ns ajax.utils
+(ns ajax-client.utils
     (:require [fruits.math.api :as math]))
 
 ;; ----------------------------------------------------------------------------
@@ -26,14 +26,11 @@
   ; {:uri (string)}
   ;
   ; @usage
-  ; (request->internal-request? {:uri "..."})
-  ;
-  ; @example
   ; (request->internal-request? {:uri "/my-route"})
   ; =>
   ; true
   ;
-  ; @example
+  ; @usage
   ; (request->internal-request? {:uri "https://my-site.com"})
   ; =>
   ; false

@@ -1,8 +1,8 @@
 
-(ns ajax.csrf
-    (:require [ajax.config :as config]
-              [ajax.core   :as core]
-              [ajax.utils  :as utils]))
+(ns ajax-client.csrf
+    (:require [ajax.core]
+              [ajax-client.config :as config]
+              [ajax-client.utils  :as utils]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -23,8 +23,8 @@
 (defn load-interceptors!
   ; @ignore
   []
-  (let [interceptor (core/to-interceptor {:name "default headers" :request default-headers})]
-       (swap! core/default-interceptors conj interceptor)))
+  (let [interceptor (ajax.core/to-interceptor {:name "default headers" :request default-headers})]
+       (swap! ajax.core/default-interceptors conj interceptor)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

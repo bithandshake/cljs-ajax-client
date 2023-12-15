@@ -1,8 +1,8 @@
 
-(ns ajax.side-effects
-    (:require [ajax.core         :as core]
-              [ajax.prototypes   :as prototypes]
-              [ajax.state        :as state]
+(ns ajax-client.side-effects
+    (:require [ajax.core]
+              [ajax-client.prototypes   :as prototypes]
+              [ajax-client.state        :as state]
               [fruits.random.api :as random]))
 
 ;; ----------------------------------------------------------------------------
@@ -31,6 +31,7 @@
   ; (defn my-error-handler-f    [request-id server-response]      ...)
   ; (defn my-response-handler-f [request-id server-response-body] ...)
   ; (defn my-response-parser-f  [request-id server-response-body] (my-parser/read-json server-response-body))
+  ; ...
   ; (send-request! :my-request {:method             :post
   ;                             :progress-handler-f my-progress-handler-f
   ;                             :error-handler-f    my-error-handler-f
@@ -43,8 +44,8 @@
    (send-request! (random/generate-keyword) request-props))
 
   ([request-id {:keys [method uri] :as request-props}]
-   (let [reference (case method :get  (core/GET  uri (prototypes/request-props-prototype request-id request-props))
-                                :post (core/POST uri (prototypes/request-props-prototype request-id request-props)))]
+   (let [reference (case method :get  (ajax.core/GET  uri (prototypes/request-props-prototype request-id request-props))
+                                :post (ajax.core/POST uri (prototypes/request-props-prototype request-id request-props)))]
         (swap! state/REFERENCES assoc request-id reference)
         (-> request-id))))
 
@@ -59,4 +60,4 @@
   [request-id]
   (when-let [reference (-> state/REFERENCES deref request-id)]
             (swap! state/REFERENCES dissoc request-id)
-            (core/abort reference)))
+            (ajax.core/abort reference)))

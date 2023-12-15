@@ -1,5 +1,5 @@
 
-(ns ajax.config
+(ns ajax-client.config
     (:require [dom.api :as dom]))
 
 ;; ----------------------------------------------------------------------------

@@ -1,16 +1,16 @@
 
-(ns ajax.api
-    (:require [ajax.csrf]
-              [ajax.side-effects :as side-effects]
-              [ajax.utils        :as utils]))
+(ns ajax-client.api
+    (:require [ajax-client.csrf]
+              [ajax-client.side-effects :as side-effects]
+              [ajax-client.utils        :as utils]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-; @redirect (ajax.side-effects/*)
+; @redirect (ajax-client.side-effects/*)
 (def send-request!  side-effects/send-request!)
 (def abort-request! side-effects/abort-request!)
 
-; @redirect (ajax.utils/*)
+; @redirect (ajax-client.utils/*)
 (def progress-event->request-progress utils/progress-event->request-progress)
 (def request->internal-request?       utils/request->internal-request?)

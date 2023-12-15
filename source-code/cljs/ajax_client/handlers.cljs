@@ -1,7 +1,7 @@
 
-(ns ajax.handlers
-    (:require [ajax.state :as state]
-              [ajax.utils :as utils]))
+(ns ajax-client.handlers
+    (:require [ajax-client.state :as state]
+              [ajax-client.utils :as utils]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -16,13 +16,13 @@
   ;
   ; @return (function)
   [request-id {:keys [error-handler-f response-parser-f]}]
-  (if error-handler-f (fn [server-response]
-                          (swap! state/REFERENCES dissoc request-id)
-                          (if response-parser-f (let [server-response (update server-response :response #(response-parser-f request-id %))]
-                                                     (error-handler-f request-id server-response))
-                                                (error-handler-f request-id server-response)))
-                      (fn [_]
-                          (swap! state/REFERENCES dissoc request-id))))
+  (fn [server-response]
+      (swap! state/REFERENCES dissoc request-id)
+      (if (fn? error-handler-f)
+          (if (fn? response-parser-f)
+              (let [server-response (update server-response :response #(response-parser-f request-id %))]
+                   (error-handler-f request-id server-response))
+              (error-handler-f request-id server-response)))))
 
 (defn response-handler-f
   ; @ignore
@@ -34,13 +34,13 @@
   ;
   ; @return (function)
   [request-id {:keys [response-handler-f response-parser-f]}]
-  (if response-handler-f (fn [server-response-body]
-                             (swap! state/REFERENCES dissoc request-id)
-                             (if response-parser-f (let [server-response-body (response-parser-f request-id server-response-body)]
-                                                        (response-handler-f request-id server-response-body))
-                                                   (response-handler-f request-id server-response-body)))
-                         (fn [_]
-                             (swap! state/REFERENCES dissoc request-id))))
+  (fn [server-response-body]
+      (swap! state/REFERENCES dissoc request-id)
+      (if (fn? response-handler-f)
+          (if (fn? response-parser-f)
+              (let [server-response-body (response-parser-f request-id server-response-body)]
+                   (response-handler-f request-id server-response-body)))
+          (response-handler-f request-id server-response-body))))
 
 (defn progress-handler-f
   ; @ignore
@@ -51,9 +51,10 @@
   ;
   ; @return (function)
   [request-id {:keys [progress-handler-f]}]
-  (if progress-handler-f (fn [progress-event]
-                             (let [request-progress (utils/progress-event->request-progress progress-event)]
-                                  (progress-handler-f request-id request-progress)))))
+  (fn [progress-event]
+      (if (fn? progress-handler-f)
+          (let [request-progress (utils/progress-event->request-progress progress-event)]
+               (progress-handler-f request-id request-progress)))))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
