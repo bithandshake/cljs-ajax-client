@@ -7,6 +7,17 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
+; @tutorial CSRF token
+;
+; To use a CSRF token in request headers, place an element into the DOM tree with
+; the `data-csrf-token` attribute, and set the actual token as its value.
+;
+; @usage
+; [:html [:body [:div {:data-csrf-token "..."}]]]
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
 ; @redirect (ajax-client.side-effects/*)
 (def send-request!  side-effects/send-request!)
 (def abort-request! side-effects/abort-request!)
