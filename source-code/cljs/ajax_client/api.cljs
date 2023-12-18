@@ -9,7 +9,7 @@
 
 ; @tutorial CSRF token
 ;
-; To use a CSRF token in request headers, place an element into the DOM tree with
+; To use a CSRF token in request headers, place an element into the DOM-tree with
 ; the `data-csrf-token` attribute, and set the actual token as its value.
 ;
 ; @usage

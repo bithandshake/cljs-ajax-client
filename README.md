@@ -11,7 +11,7 @@ as CSRF handling, etc.
 
 ```
 {:deps {bithandshake/cljs-ajax-client {:git/url "https://github.com/bithandshake/cljs-ajax-client"
-                                       :sha     "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}}
+                                       :sha     "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}}}
 ```
 
 ### Current version

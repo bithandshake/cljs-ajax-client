@@ -1,9 +1,9 @@
 
 (ns ajax-client.side-effects
     (:require [ajax.core]
-              [ajax-client.prototypes   :as prototypes]
-              [ajax-client.state        :as state]
-              [fruits.random.api :as random]))
+              [ajax-client.prototypes :as prototypes]
+              [ajax-client.state      :as state]
+              [fruits.random.api      :as random]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
