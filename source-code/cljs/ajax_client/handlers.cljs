@@ -39,8 +39,8 @@
       (if (fn? response-handler-f)
           (if (fn? response-parser-f)
               (let [server-response-body (response-parser-f request-id server-response-body)]
-                   (response-handler-f request-id server-response-body)))
-          (response-handler-f request-id server-response-body))))
+                   (response-handler-f request-id server-response-body))
+              (response-handler-f request-id server-response-body)))))
 
 (defn progress-handler-f
   ; @ignore
