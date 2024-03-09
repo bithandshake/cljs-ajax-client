@@ -12,7 +12,7 @@
   ; (fn [progress-event]
   ;     (progress-event->request-progress progress-event))
   ;
-  ; @return (percentage)
+  ; @return (percent)
   [progress-event]
   (let [loaded (.-loaded progress-event)
         total  (.-total  progress-event)]
